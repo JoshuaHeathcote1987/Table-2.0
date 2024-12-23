@@ -22,7 +22,7 @@ export default function Index({ data, fields }) {
     useEffect(() => {
         Util.initSortState(url, setSortState, setSortByState, results, setResults);
         Util.initFilterState(url, setFilterState);
-    }, [url, results]);
+    }, []);
 
     const handleSortChange = (newSortByState, newSortState) => {
         setSortByState(newSortByState);
@@ -42,7 +42,8 @@ export default function Index({ data, fields }) {
                 sortState={sortState}
                 sortByState={sortByState}
                 setResults={setResults}
-                onSortChange={handleSortChange}
+                setSortState={setSortState}
+                setSortByState={setSortByState}
             />
 
             <hr className="my-4" />

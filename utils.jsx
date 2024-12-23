@@ -74,7 +74,6 @@ class Utils {
         }
     }
 
-
     static runSort(sortState, sortByState, results, setResults) {
         // Clone the results array to avoid mutating the original state
         const sortedResults = [...results].sort((a, b) => {

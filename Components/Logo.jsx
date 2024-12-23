@@ -14,7 +14,7 @@ export default function Logo() {
       {/* Content with Opacity */}
       <div className="relative rounded-lg bg-gray-300 bg-opacity-50 w-44 h-44 flex items-center justify-center">
         <div className="flex rounded-lg flex-row items-center justify-center bg-gray-600 bg-opacity-80 h-5/6 w-5/6">
-          <div className="flex rounded-lg flex-row items-center justify-center bg-gray-300 bg-opacity-30 h-5/6 w-5/6 p-4">
+          <div className="flex rounded-lg text-white flex-row items-center justify-center bg-gray-300 bg-opacity-30 h-5/6 w-5/6 p-4">
             .tables
           </div>
         </div>
