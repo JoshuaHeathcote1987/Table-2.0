@@ -42,10 +42,6 @@ export default function Index({ data, fields }) {
 
             <Logo />
 
-            <hr className="mt-12 mb-8" />
-
-            <Todo />
-
             <hr className="my-4" />
 
             <DisplaySort
