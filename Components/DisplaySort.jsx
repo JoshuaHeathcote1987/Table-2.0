@@ -1,6 +1,8 @@
 import React from 'react';
 import Util from '../utils';
 
+import LikeIcon from '../Icons/twotone/like.svg';
+
 export default function DisplaySort({
     url,
     headers,
@@ -65,7 +67,7 @@ export default function DisplaySort({
                 }}
                 className="border p-4 rounded-md active:border-gray-400 hover:bg-gray-100"
             >
-                👍
+                <img src={LikeIcon} alt="Sort" className="w-6 h-6" />
             </button>
         </div>
     )

@@ -1,6 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import Util from '../utils';
 
+import LikeIcon from '../Icons/twotone/like.svg';
+import LeftSquare from '../Icons/twotone/left-square.svg';
+import RightSquare from '../Icons/twotone/right-square.svg';
+import DeleteIcon from '../Icons/twotone/delete.svg';
+
 export default function DisplayFilter({
     url,
     headers,
@@ -24,7 +29,7 @@ export default function DisplayFilter({
                 setHidden([]); // Fallback
             }
         }
-    }, [filterState]); 
+    }, [filterState]);
 
     return (
         <div>
@@ -40,7 +45,9 @@ export default function DisplayFilter({
                         <button onClick={() => {
                             setShown(headers);
                             setHidden([]);
-                        }}>🔃</button>
+                        }}>
+                            <img src={DeleteIcon} alt="Delete" className="w-4 h-4" />
+                        </button>
                     </div>
                     <select
                         id="shownHeaders"
@@ -89,19 +96,25 @@ export default function DisplayFilter({
                             setHidden((prevList) => [...prevList, selected]);
                             setSelected(""); // Reset selection
                         }
-                    }} className="border p-4 rounded-md active:border-gray-400 hover:bg-gray-100">➡️</button>
+                    }} className="border p-4 rounded-md active:border-gray-400 hover:bg-gray-100">
+                        <img src={RightSquare} alt="Move Right" className="w-6 h-6" />
+                    </button>
                     <button onClick={() => {
                         if (selected) {
                             // Add to shown and remove from hidden
                             setHidden((prevList) => prevList.filter((item) => item !== selected));
                             setSelected(""); // Reset selection
                         }
-                    }} className="border p-4 rounded-md active:border-gray-400 hover:bg-gray-100">⬅️</button>
+                    }} className="border p-4 rounded-md active:border-gray-400 hover:bg-gray-100">
+                        <img src={LeftSquare} alt="Move Left" className="w-6 h-6" />
+                    </button>
                     <button onClick={() => {
                         const values = hidden;
                         setFilterState(hidden);
                         Util.writeLocalStorage(url, 'filter', values);
-                    }} className="border p-4 rounded-md active:border-gray-400 hover:bg-gray-100">👍</button>
+                    }} className="border p-4 rounded-md active:border-gray-400 hover:bg-gray-100">
+                        <img src={LikeIcon} alt="Go" className="w-6 h-6" />
+                    </button>
                 </div>
             </div>
         </div>

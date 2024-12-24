@@ -1,6 +1,9 @@
 import React, { useState } from 'react'
 import Util from '../utils';
 
+import LikeIcon from '../Icons/twotone/like.svg';
+import DeleteIcon from '../Icons/twotone/delete.svg';
+
 export default function DisplaySearch({
     url,
     headers,
@@ -52,17 +55,27 @@ export default function DisplaySearch({
                 Util.runSearch(results, header, criteria, setResults);
             }} className="border p-4 rounded-md active:border-gray-400 hover:bg-gray-100"
             >
-                👍
+                <img src={LikeIcon} alt="Sort" className="w-6 h-6" />
             </button>
-            <button onClick={() => {
-                setResults(data);
-                Util.initSortState(url, setSortState, setSortByState, data, setResults);
-                Util.initFilterState(url, setFilterState);
-                setCriteria('');
-            }} className="border p-4 rounded-md active:border-gray-400 hover:bg-gray-100"
-            >
-                ❌
-            </button>
+            <div className="flex flex-row gap-4">
+                <button onClick={() => {
+                    setResults(data);
+                    Util.initSortState(url, setSortState, setSortByState, data, setResults);
+                    Util.initFilterState(url, setFilterState);
+                    setCriteria('');
+                }} className="border p-4 rounded-md active:border-gray-400 hover:bg-gray-100"
+                >
+                    <img src={DeleteIcon} alt="Delete" className="w-6 h-6" />
+                </button>
+                <div className="flex flex-row">
+                    <div className="w-1 bg-yellow-200">
+
+                    </div>
+                    <div className="bg-yellow-100 p-4">
+                        Always use the <span className="text-red-700 font-bold">delete</span> button to reset the table.
+                    </div>
+                </div>
+            </div>
         </div>
     )
 }
